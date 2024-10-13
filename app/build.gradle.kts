@@ -21,7 +21,9 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter:5.9.1")
 
     // This dependency is used by the application.
-    implementation("com.google.guava:guava:31.1-jre")
+    implementation("com.google.guava:guava:32.0.0-android")
+    implementation("org.apache.poi:poi:5.3.0")
+    implementation("org.apache.poi:poi-ooxml:5.3.0")
 }
 
 application {
