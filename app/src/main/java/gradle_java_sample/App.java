@@ -3,35 +3,23 @@
  */
 package gradle_java_sample;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class App {
     public String getGreeting() {
         return "Hello World!";
     }
 
+    /**
+     * log
+     */
+    private static final Logger log = LogManager.getLogger(App.class);
+
     public static void main(String[] args) {
-        try (Workbook workbook = new XSSFWorkbook()) {
-            final Sheet sheet = workbook.createSheet();
-
-            // 1:1
-            final Row row = sheet.createRow(1);
-            final Cell cell = row.createCell(1);
-
-            cell.setCellValue("POIから値を出力");
-
-            final FileOutputStream outputStream = new FileOutputStream("./file.xlsx");
-
-            workbook.write(outputStream);
-        } catch (final IOException e) {
-            throw new RuntimeException(e);
-        }
+        new EditTemplateClone(
+                EditTemplateClone.EXPORT_DIR_PATH + "book.xlsx",
+                "newBook.xlsx"
+        ).run();
     }
 }

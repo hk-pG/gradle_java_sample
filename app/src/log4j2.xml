@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Configuration status="WARNl">
+    <Apenders>
+        <Console name="Console">
+            <!--            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />-->
+        </Console>
+
+        <File name="App">
+            <FileName>app.log</FileName>
+            <!--            <PatternLayout>-->
+            <!--                <Pattern>%d{ISO8601} %-5level %logger{36} - %msg%n</Pattern>-->
+            <!--            </PatternLayout>-->
+        </File>
+    </Apenders>
+
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="App"/>
+            <!--            <AppenderRef ref="STDOUT"/>-->
+        </Root>
+    </Loggers>
+</Configuration>
